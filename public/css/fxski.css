@@ -112,3 +112,15 @@ B, TH
     color: #FFFFFF;
     font-size: 8pt;
 }
+
+.menu span { height: 35px; width: 105px; display: block; }
+.menu span a#about_us { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_we.jpg") no-repeat rgb(0,0,0); }
+.menu span a:hover#about_us { background: url("../images/page/m_we_m.jpg") no-repeat rgb(0,0,0) !important; }
+.menu span a#terrains { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_ter.jpg") no-repeat rgb(0,0,0); }
+.menu span a:hover#terrains { background: url("../images/page/m_ter_m.jpg") no-repeat rgb(0,0,0) !important; }
+.menu span a#video { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_vid.jpg") no-repeat rgb(0,0,0); }
+.menu span a:hover#video { background: url("../images/page/m_vid_m.jpg") no-repeat rgb(0,0,0) !important; }
+.menu span a#chat { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_pokec.jpg") no-repeat rgb(0,0,0); }
+.menu span a:hover#chat { background: url("../images/page/m_pokec_m.jpg") no-repeat rgb(0,0,0) !important; }
+.menu span a#links { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_lin.jpg") no-repeat rgb(0,0,0); }
+.menu span a:hover#links { background: url("../images/page/m_lin_m.jpg") no-repeat rgb(0,0,0) !important; }
