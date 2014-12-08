@@ -18,7 +18,6 @@ class ArticleController extends Zend_Controller_Action {
 	}
 
 	public function indexAction() {
-		echo "KOKOSArticle";
-		// action body
+		echo "Article";
 	}
 }
