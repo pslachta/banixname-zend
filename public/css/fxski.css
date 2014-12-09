@@ -1,20 +1,19 @@
-BODY
-{
+body {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;
     background-color: #000033;
     color: #ffffff;
     font-size: 10pt;
     text-indent: 0;
+	padding: 1px;
+	margin: 0;
 }
 
-TABLE, TR, TD, TH
-{
+TABLE, TR, TD, TH {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;
     color: #ffffff;
     font-size: 10pt;
     line-height: 1.3;
 }
-
 
 h1
 {
@@ -42,73 +41,62 @@ h2
     font-size: 11pt;
 }
 
-.pokecdat
-{
+.pokecdat {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;
     font-size: 10pt;
 }
 
-.roz
-{
+.roz {
     text-align: justify;
 }
 
-A
-{
+A {
     text-decoration: none;
     color: #6655ff;
 }
 
-A:hover, A:active
-{
+A:hover, A:active {
     text-decoration: none;
     color: #FF9900;
 }
 
-B, TH
-{
+B, TH {
     font-weight: 800;
 }
 
-.title
-{
+.title {
     color: #CCCCFF;
     font-size: 14pt;
     font-weight: 800;
 }
 
-.table
-{
+.table {
     background-color: #CCCCFF;
     color: #000000;
     font-size: 10pt;
     font-weight: 400;
 }
 
-.tabtitle
-{
+.tabtitle {
     background-color: #6666CC;
     color: #FFFFFF;
     font-size: 10pt;
     font-weight: 800;
 }
 
-.hel9
-{
+.hel9 {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;
     color: #FFFFFF;
     font-size: 9pt;
 }
 
-.hel8
-{
+.hel8 {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;
     color: #FFFFFF;
     font-size: 8pt;
 }
 
-.small
-{
+.small {
     color: #FFFFFF;
     font-size: 8pt;
 }
@@ -124,3 +112,15 @@ B, TH
 .menu span a:hover#chat { background: url("../images/page/m_pokec_m.jpg") no-repeat rgb(0,0,0) !important; }
 .menu span a#links { height: inherit; width: inherit; display: inherit; background: url("../images/page/m_lin.jpg") no-repeat rgb(0,0,0); }
 .menu span a:hover#links { background: url("../images/page/m_lin_m.jpg") no-repeat rgb(0,0,0) !important; }
+
+#header {
+	margin: 0 auto;
+    position: relative;
+	width: 500px
+}
+#header a {
+	background: url("../images/page/title1.jpg") no-repeat rgb(0,0,0);
+	display: block;
+	width: 500px;
+	height: 98px;
+}
