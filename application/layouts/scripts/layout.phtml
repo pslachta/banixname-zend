@@ -2,8 +2,7 @@
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headTitle()->setSeparator(' | ');
 $request = Zend_Controller_Front::getInstance()->getRequest();
-$this->headTitle($request->getControllerName())
-		->headTitle('BanixName');
+$this->headTitle('BanixName');
 
 echo $this->doctype();
 ?>
@@ -33,7 +32,7 @@ echo $this->doctype();
 
 		</script>
 		<div id="content">
-			<h1><?php echo $this->escape($this->title); ?></h1>
+			<!--<h1><?php echo $this->escape($this->title); ?></h1>-->
 			<?php echo $this->layout()->content; ?>
 		</div>
 	</body>
