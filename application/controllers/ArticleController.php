@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of ArticleController
  *
@@ -30,20 +24,19 @@ class ArticleController extends Zend_Controller_Action {
 //	];
 
 	public function init() {
-		/* Initialize action controller here */
-	}
-
-	public function indexAction() {
-//		echo "Article - index()";
-	}
-
-	public function viewAction() {
 		$this->articles = new Application_Model_DbTable_Articles();
 		$this->authors = new Application_Model_DbTable_Authors();
 		$this->images = new Application_Model_DbTable_Images();
 		$id = $this->getRequest()->getParam('id');
 		$this->view->article = $this->getArticle($id);
 		$this->view->articleImages = $this->getArticleImages($id);
+		$this->view->html = $this->getArticleHTML();
+	}
+
+	public function indexAction() {
+	}
+
+	public function viewAction() {
 	}
 
 	private function getArticle($id) {
@@ -72,5 +65,34 @@ class ArticleController extends Zend_Controller_Action {
 		}
 		return $articleImages;
 	}
-
+	
+	public function getArticleHTML() {
+		$html = '' 
+		.'<tr>'
+		.'	<td align="center">'
+		.'		<h3>'.$this->view->article['name'].'</h3>'
+		.'	</td>'
+		.'</tr>'
+		.'<tr>'
+		.'	<td align="left">'
+		.'		<p>'.$this->view->article['body'].'</p>'
+		.'	</td>'
+		.'</tr>  '
+		.'<tr>'
+		.'	<td align="center">'
+		.'		<p>Pictures</p>';
+				foreach ($this->view->articleImages as $image) {
+					$html .= '<a href="javascript:closeWindow();openWindow1(\'../picone?id='.$image['id'].'\',416,324)">'
+					.'<img src="../articles/'.$this->view->article['directory'].'/thumb/'.$image['thumb'].'" border="0" alt="'.$image['title'].'">'
+					.'</a>'."\n"; 
+				}
+		$html .= '	</td>'
+		.'</tr>'
+		.'<tr>'
+		.'	<td align="right">'
+		.'		<a href="mailto:'.$this->view->article['email'].'">'.$this->view->article['author'].'</a>'
+		.'	</td>'
+		.'</tr>';
+		return $html;
+	}
 }

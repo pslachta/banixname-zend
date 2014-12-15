@@ -5,7 +5,7 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-		//$this->headTitle('Homepage');
+		// $this->headTitle('Homepage');
         /* Initialize action controller here */
     }
 

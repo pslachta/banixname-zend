@@ -18,27 +18,19 @@ class TerrainsController extends Zend_Controller_Action {
 	}
 
 	public function indexAction() {
-		echo "Tereny";
 	}
 	public function ropiceAction() {
-		echo "Ropice";
 	}
 	public function lysaAction() {
-		echo "Lysa";
 	}
 	public function tatryAction() {
-		echo "Tatry";
 	}
 	public function valthorensAction() {
-		echo "Val Thorens";
 	}
 	public function ldaAction() {
-		echo "LDA";
 	}
 	public function chamAction() {
-		echo "Chamonix";
 	}
 	public function otherAction() {
-		echo "Others";
 	}
 }

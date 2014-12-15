@@ -4,33 +4,5 @@ $this->headTitle($this->title);
 ?>
 <br><br>
 <table cellspacing="0" cellpadding="0" border="0" width="715" height="97%" align="center">
-	<tr>
-		<td align="center">
-			<h3><?=$this->article['name']?></h3>
-		</td>
-	</tr>
-	<tr>
-		<td align="left">
-			<p><?=$this->article['body']?></p>
-		</td>
-	</tr>
-	<tr>
-		<td align="center">
-			<p>Pictures</p>
-			<?php
-			foreach ($this->articleImages as $image) {
-				?>
-				<a href="javascript:closeWindow();openWindow1('/picone.php?id=<?= $image['id'] ?>&dire=<?= $this->article['directory'] ?>',416,324)">
-					<img src="../articles/<?= $this->article['directory'] ?>/thumb/<?= $image['thumb'] ?>" border="0" alt="<?= $image['title'] ?>">
-				</a> 
-				<?php
-			}
-			?>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">
-			<a href="mailto:<?=$this->article['email']?>"><?=$this->article['author']?></a>
-		</td>
-	</tr>
+	<?= $this->html?>
 </table>
