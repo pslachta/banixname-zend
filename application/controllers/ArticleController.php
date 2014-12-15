@@ -67,6 +67,7 @@ class ArticleController extends Zend_Controller_Action {
 	}
 	
 	public function getArticleHTML() {
+		
 		$html = '' 
 		.'<tr>'
 		.'	<td align="center">'
@@ -82,7 +83,8 @@ class ArticleController extends Zend_Controller_Action {
 		.'	<td align="center">'
 		.'		<p>Pictures</p>';
 				foreach ($this->view->articleImages as $image) {
-					$html .= '<a href="javascript:closeWindow();openWindow1(\'../picone?id='.$image['id'].'\',416,324)">'
+					$size=getimagesize('articles/'.$this->view->article['directory'].'/'.$image['image']);
+					$html .= '<a href="javascript:closeWindow();openWindow1(\'../picone?id='.$image['id'].'\','.($size[0]+16).','.($size[1]+60).')">'
 					.'<img src="../articles/'.$this->view->article['directory'].'/thumb/'.$image['thumb'].'" border="0" alt="'.$image['title'].'">'
 					.'</a>'."\n"; 
 				}

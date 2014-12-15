@@ -1,6 +1,7 @@
 <?php
 $this->title = 'Detail fotky';
 $this->headTitle($this->title);
+$this->layout()->setLayout('picone');
 ?>
 <center>
 	<a href='javascript:window.close();'><img src='articles/<?= $this->article['dire']?>/<?= $this->image['img'] ?>' border=0></a><br>

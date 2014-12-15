@@ -1,0 +1,25 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' | ');
+$request = Zend_Controller_Front::getInstance()->getRequest();
+$this->headTitle('Detailní foto');
+
+echo $this->doctype();
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<?php echo $this->headMeta(); ?>
+		<?php echo $this->headTitle(); ?>
+		<?php
+		echo $this->headLink()
+				->prependStylesheet($this->baseUrl() . '/css/fxski.css');
+		?>
+<!--		<script src="<?= $this->baseUrl() ?>/js/script.js"></script>-->
+	</head>
+	<body>
+		<div id="photo">
+			<?php echo $this->layout()->content; ?>
+		</div>
+	</body>
+</html>
