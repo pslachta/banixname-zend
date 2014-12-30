@@ -15,6 +15,8 @@ TABLE, TR, TD, TH {
     line-height: 1.3;
 }
 
+.xdebug-error td, th {color: black;}
+
 h1
 {
     font-family: helvetica ce, arial ce, arial, helvetica, sans-serif;

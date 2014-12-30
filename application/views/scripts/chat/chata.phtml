@@ -1,7 +1,11 @@
 <?php
 $this->title = 'chata pod lavinou';
 $this->headTitle($this->title);
-$npost = FALSE;
+if ($this->isLogged) {
+	$this->renderToPlaceholder('showport.phtml', 'showport');
+} else {
+	$this->renderToPlaceholder('loginbox.phtml', 'loginbox');
+}
 ?>
 <table cellspacing='0' cellpadding='0' border='0' width='715' height='97%' align='center'>
 	<tr>
@@ -10,14 +14,14 @@ $npost = FALSE;
 			<font size="1" color="#999999">zatím ve zkušebním provozu, takže omluvte nějaké chyby jestli tu budou</font>
 		</td>
 	</tr>
-	<?php if ($npost) { ?>
-	<tr>
-		<td>
-			<a href="/chat/posta.php"><img src="../images/page/posta.gif"></a>
-		</td>
-	</tr>
+	<?php if ($this->newPost) { ?>
+		<tr>
+			<td>
+				<a href="<?= $this->baseUrl() ?>/chat/posta"><img src="<?= $this->baseUrl() ?>/images/page/posta.gif"></a>
+			</td>
+		</tr>
 	<?php } ?>
-	
+
 	<tr>
 		<td width="100%">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -29,56 +33,59 @@ $npost = FALSE;
 				<tr>
 					<td>
 						<b>
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs=0">Nejnovější</a>&nbsp;&nbsp;
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$noffs.'">Novější</a>&nbsp;&nbsp;
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$poffs.'">Starší</a>&nbsp;&nbsp;
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$counts.'">Nejstarší</a>&nbsp;&nbsp;
+							<?= $this->paginator?>
 							<?php if ($this->isLogged) { ?>
 								<a href="'.$HOME.'/chat/index.php?'.$sex.'">Pošta</a>
-							<? } ?>
-							<a href="'.$HOME.'/chat/index.php?'.$sex.'">Obsah</a>
-						</b>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<hr width=100%>
-					</td>
-				</tr>
-
-				<?php
-				foreach ($this->chatChata as $comment) {
-					$author = $comment['user'];
-					?>
-					<tr>
-						<td bgcolor='white'>
-							<div align='left'><font color='black'> <b><?= $author ?></b>,&nbsp;
-								<span class='pokecdat'><?= $comment['datum'] ?> <?= $comment['cas'] ?></span></div>
-							<div class=mno><?= $comment['txt'] ?></div>
+								<? } ?>
+								<a href="<?= $this->baseUrl() ?>/chat">Obsah</a>
+							</b>
 						</td>
 					</tr>
-					<?php
-					//var_dump($comment);
-					?>
 					<tr>
-						<td bgcolor='white'>
+						<td>
 							<hr width=100%>
 						</td>
 					</tr>
+
 					<?php
-				}
-				?>
-				<tr>
-					<td>
-						<b>
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs=0">Nejnovější</a>&nbsp&nbsp
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$noffs.'">Novější</a>&nbsp&nbsp
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$poffs.'">Starší</a>&nbsp&nbsp
-							<a href="'.$PHP_SELF.'?'.$sex.'&offs='.$counts.'">Nejstarší</a>&nbsp&nbsp
-							<?php if ($this->isLogged) { ?>
-								<a href="'.$HOME.'/chat/index.php?'.$sex.'">Pošta</a>
-							<? } ?>
-							<a href="'.$HOME.'/chat/index.php?'.$sex.'">Obsah</a>
+					foreach ($this->chatChata as $comment) {
+						$author = $comment['user'];
+						?>
+						<tr>
+							<td bgcolor='white'>
+								<?php if ($this->isLogged) { ?>
+									<a href="'.$HOME.'/chat/index.php?'.$sex.'">
+										<? } ?>
+										<img src="<?= $this->baseUrl() ?>/images/ports/<?= $comment['pic'] ?>" width='40' height='50' border='1' align='left'>
+										<?php if ($this->isLogged) { ?>
+										</a>
+										<? } ?>
+										<div align='left'><font color='black'> <b><?= $author ?></b>,&nbsp;
+											<span class='pokecdat'><?= $comment['datum'] ?> <?= $comment['cas'] ?></span></div>
+										<div class=mno><?= $comment['txt'] ?></div>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor='white'>
+										<hr width=100%>
+									</td>
+								</tr>
+								<?php
+							}
+							?>
+							<tr>
+								<td>
+									<hr width=100%>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b>
+										<?= $this->paginator?>
+										<?php if ($this->isLogged) { ?>
+											<a href="'.$HOME.'/chat/index.php?'.$sex.'">Pošta</a>
+										<? } ?>
+											<a href="<?= $this->baseUrl() ?>/chat">Obsah</a>
 						</b>
 					</td>
 				</tr>
@@ -90,15 +97,17 @@ $npost = FALSE;
 
 			</table>
 		</td>
+	<div>
+		
+	</div>
 		<td valign='top'>
-			<h3>Loginbox/Portrait</h3>
-
+			<?= $this->isLogged ? $this->placeholder('showport') : $this->placeholder('loginbox')?>
 		</td>
 	</tr>
 
 	<tr>
 		<td align="center" valign=bottom colspan=3>
-			<p>Čaute všichni freerideři a freeriderky. Všechny dotazy, připomínky a hlavně popis chyb směřujte na <a href=mailto:banix@centrum.cz> banix@centrum.cz</a>.</p>
+			<p>Čaute všichni freerideři a freeriderky. Všechny dotazy, připomínky a hlavně popis chyb směřujte na <a href="mailto:banix@centrum.cz">banix@centrum.cz</a>.</p>
 		</td>
 	</tr>
 </table>

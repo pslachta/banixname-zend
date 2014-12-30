@@ -1,0 +1,40 @@
+<table align="right" border="4" cellpadding="3" cellspacing="2" bordercolorlight="silver" bordercolordark="gray">
+	<?php
+	if (isset($this->message)) {
+		?>
+		<tr>
+			<td align="center"><?= $this->message ?></td>
+		</tr>
+		<?php
+	}
+	?>
+	<form method="POST">
+		<tr>
+			<td>
+				<table align="center" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<font face=courier color=gold> Uživatel:</font>
+						</td>
+						<td>
+							<input type="Text" name="auser" value="<?= isset($this->auser) ? $this->auser : ''?>" size="12">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font face=courier color=gold> Heslo:</font>
+						</td>
+						<td>
+							<input type="Password" name="apass" size="12">
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<input type="Submit" value="Přihlásit se">
+			</td>
+		</tr>
+	</form>
+</table>

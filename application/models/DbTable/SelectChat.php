@@ -5,7 +5,7 @@
  *
  * @author banix
  */
-class Application_Model_DbTable_SelectChat extends Zend_Db_Table_Abstract/*extends Zend_Db_Adapter_Abstract*/ {
+class Application_Model_DbTable_SelectChat extends Zend_Db_Table_Abstract {
 
 	public function getChataLastEntry($table) {
 		$select = $this->_db->select()->from(['t'=>$table],["time_format(datcas,'%d.%m.%Y') AS datum","time_format(datcas,'%H:%i:%s') AS cas"])
@@ -17,12 +17,19 @@ class Application_Model_DbTable_SelectChat extends Zend_Db_Table_Abstract/*exten
     }
 	
 	public function getChatPage($chatType, $offset = 0, $limit = 15) {
-				$select = $this->_db->select()->from(['t'=>$chatType],['id', 'txt', "date_format(datcas,'%d.%m.%Y') AS datum","time_format(datcas,'%H:%i:%s') AS cas"])
+		$select = $this->_db->select()->from(['t'=>$chatType],['id', 'txt', "date_format(datcas,'%d.%m.%Y') AS datum","time_format(datcas,'%H:%i:%s') AS cas"])
 				->join(['u'=>'user1'], 'u.uid = t.uid', ['user','pic'])
 				->order('t.id desc')
 				->limit($limit, $offset);
 		$stmt = $select->query();
 		return $stmt->fetchAll();
+	}
+	
+	public function getChatCount($chatType) {
+		$select = $this->_db->select()->from(['t'=>$chatType],['id', 'txt', "date_format(datcas,'%d.%m.%Y') AS datum","time_format(datcas,'%H:%i:%s') AS cas"])
+				->join(['u'=>'user1'], 'u.uid = t.uid', ['user','pic']);
+		$stmt = $select->query();
+		return count($stmt->fetchAll());
 	}
 	
 	public function listTables() {}
