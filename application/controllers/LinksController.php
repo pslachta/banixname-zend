@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of AboutUsController
+ * Description of LinksController
  *
  * @author banix
  */
@@ -12,5 +12,14 @@ class LinksController extends Zend_Controller_Action {
 	}
 
 	public function indexAction() {
+	}
+	
+	public function productsAction() {
+	}
+	public function personalAction() {
+	}
+	public function magazinesAction() {
+	}
+	public function miscAction() {
 	}
 }

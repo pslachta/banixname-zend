@@ -1,22 +1,51 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of AboutUsController
+ * Description of ChatController
  *
  * @author banix
  */
 class ChatController extends Zend_Controller_Action {
-	
+
 	public function init() {
-		/* Initialize action controller here */
+		$this->chata = new Application_Model_DbTable_SelectChat();
 	}
 
 	public function indexAction() {
+		$this->view->isLogged = FALSE;
+		$this->view->lastChata = $this->chata->getChataLastEntry('chata');
+		$this->view->lastAction = $this->chata->getChataLastEntry('action');
+		$this->view->lastTry = $this->chata->getChataLastEntry('try');
+		$this->view->lastRide = $this->chata->getChataLastEntry('ride');
+		$this->view->lastBazar = $this->chata->getChataLastEntry('bazar');
 	}
+
+	public function chataAction() {
+		$this->view->chatChata = $this->chata->getChatPage('chata');
+	}
+
+	public function bazarAction() {
+		
+	}
+
+	public function rideAction() {
+		
+	}
+
+	public function postAction() {
+		
+	}
+
+	public function eventAction() {
+		
+	}
+
+	public function tryAction() {
+		
+	}
+
+	public function newregAction() {
+		
+	}
+
 }

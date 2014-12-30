@@ -1,6 +1,7 @@
 <?php
-$this->title = 'Chata';
+$this->title = 'freeridový pokec';
 $this->headTitle($this->title);
+
 ?>
 <table cellspacing='0' cellpadding='0' border='0' width='715' height='97%' align='center'>
 	<tr>
@@ -14,32 +15,32 @@ $this->headTitle($this->title);
 			<table cellpadding=4 cellspacing=7 width=100% border=0>
 				<tr>
 					<td align="center" valign="top">
-						<font size="4"><b><a href="/chat/chata.php?fsXID=">Chata pod lavinou </a></b></font><br>
-						<font color="#aaaaaa" size="2" >O všem, i o ničem :-)<br><b>karlos1</b>&nbsp;&nbsp;19.04.&nbsp;18:40:00</font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/chata">Chata pod lavinou </a></b></font><br>
+						<font color="#aaaaaa" size="2" >O všem, i o ničem :-)<br><strong><?=$this->lastChata['user']?></strong>&nbsp;&nbsp;<?=$this->lastChata['datum']?>&nbsp;<?=$this->lastChata['cas']?></font>
 					</td>
 					<td align="center" valign="top">
-						<font size="4"><b><a href=/chat/action.php?fsXID=>Akce, setkání</a></b></font><br>
-						<font color="#aaaaaa" size="2"><b>mir</b>&nbsp;&nbsp;29.03.&nbsp;12:05:41</font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/event">Akce, setkání</a></b></font><br>
+						<font color="#aaaaaa" size="2"><strong><?=$this->lastAction['user']?></strong>&nbsp;&nbsp;<?=$this->lastAction['datum']?>&nbsp;<?=$this->lastAction['cas']?></font>
 					</td>
 				</tr>
 				<tr>
 					<td align="center" valign="top">
-						<font size="4"><b><a href=/chat/ride.php?fsXID=>Zážitky, rady, ...</a></b></font><br>
-						<font color="#aaaaaa" size="2" >o sněhových (nejen) dobrobružstvích<br><b>karlos1</b>&nbsp;&nbsp;28.03.&nbsp;19:04:23</font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/ride">Zážitky, rady, ...</a></b></font><br>
+						<font color="#aaaaaa" size="2" >o sněhových (nejen) dobrobružstvích<br><strong><?=$this->lastRide['user']?></strong>&nbsp;&nbsp;<?=$this->lastRide['datum']?>&nbsp;<?=$this->lastRide['cas']?></font>
 					</td>
 					<td align="center" valign="top">
-						<font size="4"><b><a href=/chat/regnew.php>Přidat nového uživatele</a></b><br></font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/regnew">Přidat nového uživatele</a></b><br></font>
 						<font color="#aaaaaa" size="2" >Kdo se nezaregistruje, může jen číst</font>
 					</td>
 				</tr>
 				<tr>
 					<td align="center" valign="top">
-						<font size="4"><b><a href=/chat/try.php?fsXID=>Zkušební pokec </a></b></font><br>
-						<font color="#aaaaaa" size="2" >Cestina, HTML, ...<br><b>Banik</b>&nbsp;&nbsp;13.02.&nbsp;10:28:26</font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/try">Zkušební pokec </a></b></font><br>
+						<font color="#aaaaaa" size="2" >Cestina, HTML, ...<br><strong><?=$this->lastTry['user']?></strong>&nbsp;&nbsp;<?=$this->lastTry['datum']?>&nbsp;<?=$this->lastTry['cas']?></font>
 					</td>
 					<td align="center" valign="top">
-						<font size="4"><b><a href=/chat/burza.php?fsXID=>Bazar</a></b></font><br>
-						<font color="#aaaaaa" size="2" >Prodej, koupě, výměna<br><b>Rumis</b>&nbsp;&nbsp;05.04.&nbsp;14:36:15</font>
+						<font size="4"><b><a href="<?=$this->baseUrl()?>/chat/bazar">Bazar</a></b></font><br>
+						<font color="#aaaaaa" size="2" >Prodej, koupě, výměna<br><strong><?=$this->lastBazar['user']?></strong>&nbsp;&nbsp;<?=$this->lastBazar['datum']?>&nbsp;<?=$this->lastBazar['cas']?></font>
 					</td>
 				</tr>
 			</table>

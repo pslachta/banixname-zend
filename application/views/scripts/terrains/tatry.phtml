@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Lysá hora';
+$this->title = 'Vysoké Tatry';
 $this->headTitle($this->title);
 ?>
 <table cellspacing='0' cellpadding='0' border='0' width='715' height='97%' align='center'>
@@ -14,21 +14,25 @@ $this->headTitle($this->title);
 	</tr>
 	<tr>
 		<td>
-			<?php /*
-			  echo "<tr><td><hr></td></tr>";
-			  $id=45;
-			  include("../clcore.php");
-			  echo "<tr><td><hr></td></tr>";
-			  $id=54;
-			  include("../clcore.php");
-			  echo "<tr><td><hr></td></tr>";
-			  $id=55;
-			  include("../clcore.php");
-			  echo "<tr><td><hr></td></tr>";
-			  $id=56;
-			  include("../clcore.php");
-			 */ ?>	
-
+			<?= $this->article->getArticleHTML(45);	?>
+			<tr>
+				<td>
+					<hr>
+				</td>
+			</tr>
+			<?= $this->article->getArticleHTML(54);	?>
+			<tr>
+				<td>
+					<hr>
+				</td>
+			</tr>
+			<?= $this->article->getArticleHTML(55);	?>
+			<tr>
+				<td>
+					<hr>
+				</td>
+			</tr>
+			<?= $this->article->getArticleHTML(56);	?>
 		</td>
 	</tr>
 </table>

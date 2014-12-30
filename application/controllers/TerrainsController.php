@@ -1,20 +1,15 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of AboutUsController
+ * Description of TerrainsController
  *
  * @author banix
  */
 class TerrainsController extends Zend_Controller_Action {
 	
 	public function init() {
-		/* Initialize action controller here */
+		Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH .'/controllers/helpers');
+		$this->view->article = $this->_helper->articleHelper;
 	}
 
 	public function indexAction() {
@@ -33,4 +28,5 @@ class TerrainsController extends Zend_Controller_Action {
 	}
 	public function otherAction() {
 	}
+	
 }

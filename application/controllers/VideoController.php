@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of AboutUsController
+ * Description of VideoController
  *
  * @author banix
  */
