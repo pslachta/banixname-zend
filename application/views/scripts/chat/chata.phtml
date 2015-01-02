@@ -3,6 +3,7 @@ $this->title = 'chata pod lavinou';
 $this->headTitle($this->title);
 if ($this->isLogged) {
 	$this->renderToPlaceholder('showport.phtml', 'showport');
+	$this->renderToPlaceholder('comment.phtml', 'comment');
 } else {
 	$this->renderToPlaceholder('loginbox.phtml', 'loginbox');
 }
@@ -14,6 +15,15 @@ if ($this->isLogged) {
 			<font size="1" color="#999999">zatím ve zkušebním provozu, takže omluvte nějaké chyby jestli tu budou</font>
 		</td>
 	</tr>
+
+	<?php if ($this->isLogged) { ?>
+		<tr>
+			<td valign="top">
+				<?= $this->placeholder('comment') ?>
+			</td>
+		</tr>
+	<?php } ?>
+
 	<?php if ($this->newPost) { ?>
 		<tr>
 			<td>

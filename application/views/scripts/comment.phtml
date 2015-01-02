@@ -1,0 +1,21 @@
+<?php
+$portrait = 'banik.gif';
+$auser = 'Banik';
+$uid = 1;
+?>
+
+<form method="POST">
+	<input type="hidden" name="uk" value="a">
+	<input type="hidden" name="uid" value="<?= $uid ?>">
+	<table>
+		<tr>
+			<td align=left valign="top" width="10%">Příspěvek:</td>
+			<td valign="top">
+				<textarea wrap=virtual name="txt" cols=60 rows=5></textarea>
+			</td>
+			<td valign="top">
+				<input type="submit" value="Odeslat">
+			</td>
+		</tr>
+	</table>
+</form>
